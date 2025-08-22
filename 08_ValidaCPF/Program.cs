@@ -34,10 +34,56 @@ namespace _08_ValidaCPF
                 return;
             }
             Console.WriteLine("CPF aceito: " + CPF);
+            //calculo verificação do primeiro digito
+            int soma = 0;
+            char[] CPFVetor = CPF.ToCharArray();
+
+            for (int i = 0; i < 9; i++)
+            {
+                soma += int.Parse(CPFVetor[i].ToString()) * (10 - i);
+            }
+            int resto = soma % 11;
+
+            int digX = 0;
+            if(resto >= 2)
+            {
+            digX = 11 - resto;
+            
+            }
+            //calculo verificação do segundo digito
+            soma = 0;
+
+            for (int i = 0;i < 10; i++)
+            {
+                soma += int.Parse(CPFVetor[i].ToString()) * (11 - i);
+            }
+               resto = soma % 11;
+             
+            int digY = 0;
+            if (resto >= 2)
+            {
+                digY = 11 - resto;
+            }
+    
+            //comparar os digitos
+            if (
+                int.Parse(CPF[9].ToString()) == digX &&
+                int.Parse(CPF[10].ToString()) == digY
+                )
+            {
+                Console.WriteLine("CPF VÁLIDO!");
+            }
+            else
+            {
+                Console.WriteLine("CPF INVÁLIDO!");
+            }
+
+
+
+
         }
 
-
-
+          
 
 
 
