@@ -86,7 +86,10 @@ namespace _09_Calendario
             if (mes == 1)
                 feriados[indice++] = 1; //Confraternização Universal
             else if (mes == 4)
+            {
+                feriados[indice++] = 4;//Aniversário de marilia
                 feriados[indice++] = 21; //Tiradentes
+            }
             else if (mes == 5)
                 feriados[indice++] = 1; //Dia do Trabalho
             else if (mes == 7)
